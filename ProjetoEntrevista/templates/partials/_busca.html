@@ -1,0 +1,9 @@
+{% load static %}
+<div class="controle__search">
+  <h1 class="font__title">Controle Veículos</h1>
+
+  <form action="{% url 'buscar' %}">
+    <input type="date" name="buscar" placeholder="Pesquisa">
+    <button type="submit">Button</button>
+  </form>
+</div>

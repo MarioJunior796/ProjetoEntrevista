@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+{% include 'partials/_busca.html' %}
+
+  <section class="controle__container">
+    
+    {% include 'partials/_alertas.html' %}
+
+    <div style="overflow-x:auto;">
+      <table class="controle__table">
+        <tr>
+          <th>Veiculo</th>
+          <th>Motorista</th>
+          <th>Data Saida</th>
+          <th>Visualizar</th>
+          <th>Editar</th>
+          <th>Excluir</th>
+        </tr>
+        {% if veiculos %}
+        {% for veiculo in veiculos %}
+        <tr>
+          <td>{{ veiculo.veiculo.veiculo }}</td>
+          <td>{{ veiculo.motorista.nome }}</td>
+          <td>{{ veiculo.dataSaida }}</td>
+          <th><a href="{% url 'detalhes' veiculo.id %}">Visualizar</a></th>
+          <th><a href="{% url 'editarVeiculo' veiculo.id %}">Editar</a></th>
+          <th><a href="{% url 'deletarVeiculo' veiculo.id %}">Excluir</a></th>
+        </tr>
+        {% endfor %}
+        {% else %}
+        {% endif %}
+      </table>
+    </div>
+  </section>
+
+{% endblock %}

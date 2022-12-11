@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<section>
+
+  {% include 'partials/_alertas.html' %}
+
+  <div class="form-style-5" style="margin-top: 2rem">
+    <form action="{% url 'cadastroMotorista' %}" method="POST"> {% csrf_token %}
+    <fieldset>
+    <legend style="margin-bottom: 1rem;">Cadastro Motorista</legend>
+
+    <input type="text" name="nome" placeholder="Informe o nome" required>
+    <input type="text" name="telefone" placeholder="Informe o telefone" required>
+    <input type="text" name="cnh" placeholder="Informe o CNH" required>
+    
+    <input type="submit" value="Apply" />
+    </form>
+  </div>
+</section>
+{% endblock %}

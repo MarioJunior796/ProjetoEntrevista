@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<section>
+
+  {% include 'partials/_alertas.html' %}
+
+  <div class="form-style-5" style="margin-top: 2rem">
+    <form action="{% url 'atualizarVeiculo' %}" method="POST"> {% csrf_token %}
+    
+    <input type="text" id="veiculoId" name="veiculoId" value="{{ veiculo.id }}" hidden>
+
+    <fieldset>
+    <legend style="margin-bottom: 1rem;">Cadastro Motorista</legend>
+
+    <input type="text" name="nomeMotorista" value="{{ veiculo.motorista.nome }}" readonly>
+    <input type="text" name="placaVeiculo" value="{{ veiculo.veiculo.placa }}" readonly>
+    <input type="date" name="dataSaida" placeholder="Informe a data de saida" value="{{ veiculo.dataSaida |date:'Y-m-d'}}" required>
+    <input type="time" name="horaSaida" placeholder="Informe a hora de saida" value="{{ veiculo.horaSaida }}" required>
+    <input type="text" name="kmSaida" placeholder="Informe o KM de saida" value="{{ veiculo.kmSaida }}" required>
+    <input type="text" name="destino" placeholder="Informe o destino" value="{{ veiculo.destino }}" required>
+    <input type="date" name="dataRetorno" placeholder="Informe a data de retorno" value="{{ veiculo.dataRetorno |date:'Y-m-d'}}" required>
+    <input type="time" name="horaRetorno" placeholder="Informe a hora de retorno" value="{{ veiculo.horaRetorno }}" required>
+    <input type="text" name="kmRetorno" placeholder="Informe o KM de retorno" value="{{ veiculo.kmRetorno }}" required>
+    <input type="text" name="kmPercorrido" placeholder="Informe o KM percorrido" value="{{ veiculo.kmPercorrido }}" required>
+
+    <input type="submit" value="Apply" />
+    </form>
+  </div>
+</section>
+{% endblock %}

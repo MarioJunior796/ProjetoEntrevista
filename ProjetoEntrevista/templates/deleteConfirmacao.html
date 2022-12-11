@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+  {% include 'partials/_busca.html' %}
+
+  <div style="width: 60%; margin: auto; text-align: center;">
+    <form method="post">
+      {% csrf_token %}
+      <p>Deseja realmente deletar esse cadastro?</p>
+      <button class="btn btn-danger" type="submit">Deletar</button>
+    </form>
+  </div>
+  
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<section>
+
+{% include 'partials/_alertas.html' %}
+
+  <div class="form-style-5" style="margin-top: 2rem">
+    <form action="{% url 'cadastroVeiculo' %}" method="POST"> {% csrf_token %}
+    <fieldset>
+    <legend style="margin-bottom: 1rem;">Cadastro Veiculo</legend>
+
+    <input type="text" name="placa" placeholder="Informe a placa" required>
+    <input type="text" name="marca" placeholder="Informe a marca" required>
+    <input type="text" name="veiculo" placeholder="Informe o veiculo" required>
+    <input type="number" name="trocaOleo" placeholder="Informe a próxima troca de óleo" required>
+    
+    <input type="submit" value="Apply" />
+    </form>
+  </div>
+</section>
+{% endblock %}

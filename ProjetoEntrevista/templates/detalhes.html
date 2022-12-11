@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<section>
+
+  <div style="width: 50%; margin: auto; border: solid 1px; border-radius: 5px;">
+    <div style="margin: 1rem;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Nome do motorista</h4>
+            <p>{{ veiculo.motorista.nome }}</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Placa do veiculo</h4>
+            <p>{{ veiculo.veiculo.placa }}</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Km percorrido</h4>
+            <p>{{ veiculo.kmPercorrido }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Data de saida</h4>
+            <p>{{ veiculo.dataSaida }}</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Hora de saida</h4>
+            <p>{{ veiculo.horaSaida }}</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Km de saida</h4>
+            <p>{{ veiculo.kmSaida }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Destino</h4>
+            <p>{{ veiculo.destino }}</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Data de retorno</h4>
+            <p>{{ veiculo.dataRetorno }}</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Hora de retorno</h4>
+            <p>{{ veiculo.horaRetorno }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <h4>Km de retorno</h4>
+            <p>{{ veiculo.kmRetorno }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
